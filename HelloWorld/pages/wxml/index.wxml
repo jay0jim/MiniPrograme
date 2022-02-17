@@ -1,0 +1,29 @@
+<!--pages/wxml/index.wxml-->
+<text>当前时间：{{time}}</text>
+<!-- <view>test</view>
+<view wx:for="{{array}}">
+  {{index}}: {{item.message}}
+</view>
+
+<block wx:for="{{[1,2,3,4]}}">
+  <view>
+    <text>{{index}}: </text>
+    <text>{{item}}</text>
+  </view>
+</block> -->
+
+<switch wx:for="{{objectArray}}" wx:key="unique">{{item.id}}</switch>
+<button bindtap="switch"> Switch </button>
+<button bindtap="addToFront"> Add to the front </button>
+
+<template name="msgItem">
+  <view>
+    <text> {{index}}: {{msg}} </text>
+    <text> Time: {{time}} </text>
+    <text> Temp: {{temp}} </text>
+  </view>
+</template>
+<template is="msgItem" data="{{...item}}"/>
+
+<import src="item.wxml"></import>
+<template is="item" data="{{text: 'forbar'}}"/>
