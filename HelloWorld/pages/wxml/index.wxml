@@ -27,3 +27,10 @@
 
 <import src="item.wxml"></import>
 <template is="item" data="{{text: 'forbar'}}"/>
+
+<!-- wxss内联样式 -->
+<view style="color :red; font-size: 48rpx">aaa</view>
+
+<button bindtap="navigateTo"> Navigate To Details </button>
+
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>

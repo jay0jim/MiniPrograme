@@ -2,6 +2,8 @@
 // 获取应用实例
 const app = getApp()
 
+console.log('index.js')
+
 Page({
   data: {
     motto: 'Hello World',

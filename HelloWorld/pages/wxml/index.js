@@ -1,4 +1,7 @@
 // pages/wxml/index.js
+
+console.log('wxml')
+
 Page({
 
   /**
@@ -53,6 +56,19 @@ Page({
     })
   },
 
+  // 测试导航
+  navigateTo: function(e) {
+    let id = '111'
+    wx.navigateTo({
+      url: '../details/details?id='+id+'&other=abc',
+    })
+  }, 
+
+  // 事件测试
+  tapName(e) {
+    console.log(e)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -105,7 +121,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

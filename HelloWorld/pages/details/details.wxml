@@ -1,0 +1,3 @@
+<!--pages/details/details.wxml-->
+<view style="color: red; font-size: 60rpx;">{{detail.id}}</view>
+<view style="color: royalblue; font-size: 50rpx;">{{detail.other}}</view>
