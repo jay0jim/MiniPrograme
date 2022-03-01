@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+<button class="testbutton" hover-class="hover" bindtap="handleButtonLoading" disabled="true"> 点击Button </button>
+<view hover-class="hover"> 点击view </view>
+
+<button class="testbutton" bindtap="handleShowToastButton"> Show Toast </button>
+<button class="testbutton" bindtap="handleShowModalButton"> Show Modal </button>
+
+
+
