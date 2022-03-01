@@ -69,6 +69,23 @@ Page({
     console.log(e)
   },
 
+  // 事件绑定与冒泡、捕获
+  handleOuterBind1(evt) {
+    console.log('1 -- handleOuterBind')
+  },
+
+  handleOuterCapture2(evt) {
+    console.log('2 -- handleOuterCapture')
+  },
+
+  handleInnerBind3(evt) {
+    console.log('3 -- handleInnerBind')
+  },
+
+  handleInnerCapture4(evt) {
+    console.log('4 -- handleInnerCapture')
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

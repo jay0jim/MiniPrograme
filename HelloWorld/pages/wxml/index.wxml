@@ -34,3 +34,25 @@
 <button bindtap="navigateTo"> Navigate To Details </button>
 
 <view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
+
+<!-- <view id="outer" catchtap="handleTap">
+  <view id="inner">点击我</view>
+</view> -->
+
+<!-- capture and bind -->
+<!-- 点击 inner view 会先后调用handleTap2、handleTap4、handleTap3、handleTap1 -->
+<view id="outer" bindtouchstart="handleOuterBind1" capture-bind:touchstart="handleOuterCapture2" style="background-color: red;">
+  Outer View
+  <view id="inner" bindtouchstart="handleInnerBind3" capture-bind:touchstart="handleInnerCapture4" style="background-color: royalblue;">
+  Inner View
+  </view>
+</view>
+
+<!-- bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。如果将上面代码中的第一个capture-bind改为capture-catch，将只触发handleTap2(capture-catch将中断捕获阶段和取消冒泡阶段) -->
+<text>----------</text>
+<view id="outer" bindtouchstart="handleOuterBind1" capture-catch:touchstart="handleOuterCapture2" style="background-color: red;">
+  Outer2 View
+  <view id="inner" bindtouchstart="handleInnerBind3" capture-bind:touchstart="handleInnerCapture4" style="background-color: royalblue;">
+  Inner2 View
+  </view>
+</view>
