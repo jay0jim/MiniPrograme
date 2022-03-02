@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    tl_loading: false,
   },
 
   // Show toast
@@ -69,7 +69,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      tl_loading: true
+    })
+    console.log('Refreshing...')
+    setTimeout(() => {
+      wx.stopPullDownRefresh({
+        success: (res) => {
+          console.log('Finished!')
+          this.setData({
+            tl_loading: false
+          })
+        },
+      })
+    }, 3000)
   },
 
   /**

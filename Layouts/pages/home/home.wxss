@@ -2,9 +2,16 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 100rpx;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: teal;
+}
+
+.herizontal{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: teal;
 }
 
 .hover{

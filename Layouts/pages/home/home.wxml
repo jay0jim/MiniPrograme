@@ -1,9 +1,12 @@
 <!--pages/home/home.wxml-->
-<button class="testbutton" hover-class="hover" bindtap="handleButtonLoading" disabled="true"> 点击Button </button>
+<button class="testbutton" hover-class="hover" bindtap="handleButtonLoading" loading="{{tl_loading}}"> 点击Button </button>
 <view hover-class="hover"> 点击view </view>
 
-<button class="testbutton" bindtap="handleShowToastButton"> Show Toast </button>
-<button class="testbutton" bindtap="handleShowModalButton"> Show Modal </button>
+<view class="herizontal" style="height: 300rpx;">
+  <button class="testbutton" bindtap="handleShowToastButton" style="width: 40%;"> Show Toast </button>
+  <button class="testbutton" bindtap="handleShowModalButton" style="width: 40%;"> Show Modal </button>
+</view>
+
 
 
 
