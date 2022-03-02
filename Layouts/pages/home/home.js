@@ -6,6 +6,7 @@ Page({
    */
   data: {
     tl_loading: false,
+    scanResult: '',
   },
 
   // Show toast
@@ -27,14 +28,47 @@ Page({
     })
   },
 
+  // 登录测试
+  loginTest() {
+    console.log('login')
+    wx.login({
+      timeout: 100000,
+      success: function(res) {
+        // 成功获取用户登录凭证
+        if(res.code) {
+          console.log('用户登录凭证' + res.code)
 
+
+
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+
+  // 扫码测试
+  scanTest() {
+    var that = this
+    wx.scanCode({
+      success: function(res) {
+        console.log(res.result)
+        that.setData({
+          scanResult: res.result
+        })
+      }
+
+    })
+  },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var app = getApp()
+    console.log(app.globalData.testGlobal)
   },
 
   /**

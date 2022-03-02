@@ -17,8 +17,12 @@ App({
       selectedColor: '#decade'
     })
 
+    this.globalData.testGlobal = 'global'
+
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+
+    testGlobal: ''
   }
 })

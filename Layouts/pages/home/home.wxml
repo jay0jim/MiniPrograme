@@ -7,6 +7,10 @@
   <button class="testbutton" bindtap="handleShowModalButton" style="width: 40%;"> Show Modal </button>
 </view>
 
+<button bindtap="loginTest">登录测试</button>
+
+<button bindtap="scanTest">扫码测试</button>
+<text>{{scanResult}}</text>
 
 
 
