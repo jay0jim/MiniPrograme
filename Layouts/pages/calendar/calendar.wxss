@@ -1,0 +1,39 @@
+/* pages/calendar/calendar.wxss */
+
+.calendar_panel{
+  width: 100%;
+  height: calc(100% - 56rpx);
+}
+.calendar_panel_two{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.calendar_box{
+  width: 100%;
+  background: aquamarine;
+  overflow: hidden;
+  display: flex;
+  height: calc(100% / 6);
+  align-items: center;
+}
+/* .weekday_label{
+  width: calc(100% / 7);
+  font-size: 27rpx;
+  padding: 12rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+.weekday_label{
+  padding: 12rpx;
+  display: flex;
+  width: calc(100% / 7);
+  justify-content: center;
+  align-items: center;
+  font-size: 27rpx;
+}

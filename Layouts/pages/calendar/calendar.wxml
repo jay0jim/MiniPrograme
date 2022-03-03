@@ -1,0 +1,17 @@
+<!--pages/calendar/calendar.wxml-->
+<view class="calendar_panel calendar_panel_two" style="background-color: aquamarine;">
+  <view class="calendar_box">
+    <view class="weekday_label">日</view>
+    <view class="weekday_label">一</view>
+    <view class="weekday_label">二</view>
+    <view class="weekday_label">三</view>
+    <view class="weekday_label">四</view>
+    <view class="weekday_label">五</view>
+    <view class="weekday_label">六</view>
+  </view>
+
+
+</view>
+
+<button bindtap="handleShowCalendar"> Show Calendar </button>
+<text>{{calendarString}}</text>
