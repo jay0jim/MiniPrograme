@@ -6,7 +6,8 @@ Page({
    */
   data: {
     week: 0,
-    calendarString: ''
+    calendarString: '',
+    dateList: []
   },
 
   handleShowCalendar() {
@@ -18,6 +19,8 @@ Page({
 
     var startDay = new Date(Date.UTC(year, month, 1)).getDay()
     var endDay = new Date(Date.UTC(year, month, daysOfMonth[month])).getDay()
+
+    var uniqueKey = 0
 
     // 从周日开始，如果1号不是周日，那么往上一个月推
     if (startDay > 0) {
@@ -32,22 +35,28 @@ Page({
       var day = daysOfMonth[tempMonth] - startDay + 1
       startDay = 0
 
+      // 上月
       for (var i = day; i <= daysOfMonth[tempMonth]; i++) {
         dateList.push({
           'day': startDay,
-          'date_ri': i
+          'date_ri': i,
+          'uniqueKey': uniqueKey++,
+          'currentMonth': 0,
         })
         startDay++
       }
     }
 
+    // 当月
     for (var i = 1; i <= daysOfMonth[month]; i++) {
       if (startDay > 6) {
         startDay = 0
       }
       dateList.push({
         'day': startDay,
-        'date_ri': i
+        'date_ri': i,
+        'uniqueKey': uniqueKey++,
+        'currentMonth': 1,
       })
       startDay++
     }
@@ -57,10 +66,13 @@ Page({
       var tempMonth = month + 1
       var tempYear = (tempMonth > 11) ? year + 1 : year
       var day = 1
+      // 下月
       for (i = startDay; i < 7; i++) {
         dateList.push({
           'day': i,
-          'date_ri': day
+          'date_ri': day,
+          'uniqueKey': uniqueKey++,
+          'currentMonth': 0,
         })
         day++
       }
@@ -77,7 +89,10 @@ Page({
 
     this.setData({
       calendarString: strDay,
+      dateList: dateList,
     })
+
+    console.log(this.data.dateList)
 
   },
 
@@ -85,11 +100,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var w = new Date(Date.UTC(2022, 2, 6)).getDay()
-    console.log(w)
-    this.setData({
-      week: w
-    })
+    this.handleShowCalendar()
   },
 
   /**

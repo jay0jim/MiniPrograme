@@ -10,8 +10,12 @@
     <view class="weekday_label">六</view>
   </view>
 
-
+  <view class="date_panel">
+    <view class="date_label" wx:for="{{dateList}}" wx:key="uniqueKey" style="color: {{dateList[index]['currentMonth']==0? 'gray' : 'black'}}">{{item.date_ri}}</view>
+  </view>
 </view>
 
-<button bindtap="handleShowCalendar"> Show Calendar </button>
-<text>{{calendarString}}</text>
+
+
+<!-- <button bindtap="handleShowCalendar"> Show Calendar </button>
+<text>{{calendarString}}</text> -->
