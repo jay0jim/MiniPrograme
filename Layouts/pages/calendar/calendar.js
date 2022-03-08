@@ -8,10 +8,11 @@ Page({
     week: 0,
     calendarString: '',
     dateList: [],
-    currentSelected: 0,
+    currentSelected,
   },
 
   handleShowCalendar() {
+    var self = this
     var year = new Date().getFullYear()
     var month = new Date().getMonth()
     var daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -58,14 +59,22 @@ Page({
         startDay = 0
       }
       var isToday = (today==i)? 1 : 0
-      dateList.push({
+      var dateInfo = {
         'day': startDay,
         'date_ri': i,
         'uniqueKey': uniqueKey++,
         'currentMonth': month,
-        'isToday': isToday,
-        'isSelected': isToday,
-      })
+        'isToday': 0,
+        'isSelected': 0,
+      }
+      if (today == i) {
+        dateInfo['isToday'] = 1
+        dateInfo['isSelected'] = 1
+        self.setData({
+          currentSelected: dateInfo
+        })
+      }
+      dateList.push(dateInfo)
       startDay++
     }
 
@@ -111,6 +120,7 @@ Page({
     var selectedDate = evt.currentTarget.dataset['date']
     console.log(selectedDate)
     
+    var currentSelected = selectedDate['date_ri']
   },
 
   /**
