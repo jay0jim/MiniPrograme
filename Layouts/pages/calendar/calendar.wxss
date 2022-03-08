@@ -53,7 +53,7 @@
   /* position: absolute; */
 }
 
-.today_label{
+.selected_label{
   position: relative;
   width: calc(100% / 7);
   justify-content: center;
@@ -64,7 +64,7 @@
   border-radius: 50%;
   /* text-align: center; */
 }
-.today_label::before{
+.selected_label::before{
   content: '今日';
   top: 10rpx;
   transform: translateX(-50%);

@@ -5,10 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    week: 0,
     calendarString: '',
     dateList: [],
-    currentSelected,
+    currentSelected: null,
   },
 
   handleShowCalendar() {
@@ -24,7 +23,6 @@ Page({
 
     var uniqueKey = 0
     var today = new Date().getDate()
-    console.log(today)
 
     // 从周日开始，如果1号不是周日，那么往上一个月推
     if (startDay > 0) {
@@ -45,7 +43,7 @@ Page({
           'day': startDay,
           'date_ri': i,
           'uniqueKey': uniqueKey++,
-          'currentMonth': tempMonth,
+          'isCurrentMonth': 0,
           'isToday': 0,
           'isSelected': 0,
         })
@@ -63,7 +61,7 @@ Page({
         'day': startDay,
         'date_ri': i,
         'uniqueKey': uniqueKey++,
-        'currentMonth': month,
+        'isCurrentMonth': 1,
         'isToday': 0,
         'isSelected': 0,
       }
@@ -89,7 +87,7 @@ Page({
           'day': i,
           'date_ri': day,
           'uniqueKey': uniqueKey++,
-          'currentMonth': tempMonth,
+          'isCurrentMonth': 0,
           'isToday': 0,
           'isSelected': 0,
         })
@@ -111,25 +109,37 @@ Page({
       dateList: dateList,
     })
 
-    console.log(this.data.dateList)
 
   },
 
   handleSelectedDay(evt) {
     var self = this
     var selectedDate = evt.currentTarget.dataset['date']
-    console.log(selectedDate)
+    var selectedIndex = selectedDate['uniqueKey']
+    selectedDate['isSelected'] = 1
     
-    var currentSelected = selectedDate['date_ri']
+    var tempSelected = self.data.currentSelected
+    var tempIndex = tempSelected['uniqueKey']
+    tempSelected['isSelected'] = 0
+    
+
+    let tempSelectedKeyStr = 'dateList[' + tempIndex + ']'
+    let newSelectedKeyStr = 'dateList[' + selectedIndex + ']'
+    self.setData({
+      tempSelectedKeyStr: tempSelected,
+      selectedIndex: selectedDate,
+      currentSelected: selectedDate
+    })
+
+    console.log(self.data.currentSelected)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var today = new Date().getDate()
+    let today = new Date().getDate()
     this.data.currentSelected = today
-
     this.handleShowCalendar()
   },
 
