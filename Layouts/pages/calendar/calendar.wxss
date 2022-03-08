@@ -46,8 +46,30 @@
 .date_label{
   width: calc(100% / 7);
   justify-content: center;
-  padding: 4% 0;
+  padding: calc(100% / 28) 0;
   align-content: center;
   text-align: center;
   /* color: gray; */
+  /* position: absolute; */
+}
+
+.today_label{
+  position: relative;
+  width: calc(100% / 7);
+  justify-content: center;
+  padding: calc(100% / 25) 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: red !important;
+  border-radius: 50%;
+  /* text-align: center; */
+}
+.today_label::before{
+  content: '今日';
+  top: 10rpx;
+  transform: translateX(-50%);
+  font-size: 18rpx;
+  color: blue;
+  position: absolute;
+  left: 50%;
 }

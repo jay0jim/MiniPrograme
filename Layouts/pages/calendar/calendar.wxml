@@ -1,5 +1,5 @@
 <!--pages/calendar/calendar.wxml-->
-<view class="calendar_panel calendar_panel_two" style="background-color: aquamarine;">
+<view class="calendar_panel calendar_panel_two">
   <view class="calendar_box">
     <view class="weekday_label">日</view>
     <view class="weekday_label">一</view>
@@ -11,7 +11,7 @@
   </view>
 
   <view class="date_panel">
-    <view class="date_label" wx:for="{{dateList}}" wx:key="uniqueKey" style="color: {{dateList[index]['currentMonth']==0? 'gray' : 'black'}}">{{item.date_ri}}</view>
+    <view class="{{dateList[index]['isToday']==0? 'date_label': 'today_label'}}" wx:for="{{dateList}}" wx:key="uniqueKey" style="color: {{dateList[index]['currentMonth']==0? 'gray' : 'black'}}" data-date="{{dateList[index]}}" bindtap="handleSelectedDay">{{item.date_ri}}</view>
   </view>
 </view>
 

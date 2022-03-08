@@ -7,7 +7,8 @@ Page({
   data: {
     week: 0,
     calendarString: '',
-    dateList: []
+    dateList: [],
+    currentSelected: 0,
   },
 
   handleShowCalendar() {
@@ -21,6 +22,8 @@ Page({
     var endDay = new Date(Date.UTC(year, month, daysOfMonth[month])).getDay()
 
     var uniqueKey = 0
+    var today = new Date().getDate()
+    console.log(today)
 
     // 从周日开始，如果1号不是周日，那么往上一个月推
     if (startDay > 0) {
@@ -41,7 +44,9 @@ Page({
           'day': startDay,
           'date_ri': i,
           'uniqueKey': uniqueKey++,
-          'currentMonth': 0,
+          'currentMonth': tempMonth,
+          'isToday': 0,
+          'isSelected': 0,
         })
         startDay++
       }
@@ -52,11 +57,14 @@ Page({
       if (startDay > 6) {
         startDay = 0
       }
+      var isToday = (today==i)? 1 : 0
       dateList.push({
         'day': startDay,
         'date_ri': i,
         'uniqueKey': uniqueKey++,
-        'currentMonth': 1,
+        'currentMonth': month,
+        'isToday': isToday,
+        'isSelected': isToday,
       })
       startDay++
     }
@@ -72,7 +80,9 @@ Page({
           'day': i,
           'date_ri': day,
           'uniqueKey': uniqueKey++,
-          'currentMonth': 0,
+          'currentMonth': tempMonth,
+          'isToday': 0,
+          'isSelected': 0,
         })
         day++
       }
@@ -96,10 +106,20 @@ Page({
 
   },
 
+  handleSelectedDay(evt) {
+    var self = this
+    var selectedDate = evt.currentTarget.dataset['date']
+    console.log(selectedDate)
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var today = new Date().getDate()
+    this.data.currentSelected = today
+
     this.handleShowCalendar()
   },
 
