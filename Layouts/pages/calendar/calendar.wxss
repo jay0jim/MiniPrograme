@@ -46,25 +46,19 @@
 .date_label{
   width: calc(100% / 7);
   justify-content: center;
-  padding: calc(100% / 28) 0;
+  padding: calc(100% / 25) 0;
   align-content: center;
   text-align: center;
   /* color: gray; */
   /* position: absolute; */
 }
 
-.selected_label{
+.today_label{
   position: relative;
-  width: calc(100% / 7);
-  justify-content: center;
-  padding: calc(100% / 25) 0;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.1);
   color: red !important;
-  border-radius: 50%;
   /* text-align: center; */
 }
-.selected_label::before{
+.today_label::before{
   content: '今日';
   top: 10rpx;
   transform: translateX(-50%);
@@ -72,4 +66,10 @@
   color: blue;
   position: absolute;
   left: 50%;
+}
+
+.selected_label{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }

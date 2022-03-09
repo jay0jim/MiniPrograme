@@ -8,6 +8,7 @@ Page({
     calendarString: '',
     dateList: [],
     currentSelected: null,
+    todayIndex: -1,
   },
 
   handleShowCalendar() {
@@ -23,6 +24,7 @@ Page({
 
     var uniqueKey = 0
     var today = new Date().getDate()
+    console.log(today)
 
     // 从周日开始，如果1号不是周日，那么往上一个月推
     if (startDay > 0) {
@@ -44,8 +46,6 @@ Page({
           'date_ri': i,
           'uniqueKey': uniqueKey++,
           'isCurrentMonth': 0,
-          'isToday': 0,
-          'isSelected': 0,
         })
         startDay++
       }
@@ -56,20 +56,18 @@ Page({
       if (startDay > 6) {
         startDay = 0
       }
-      var isToday = (today==i)? 1 : 0
+      // var isToday = (today==i)? 1 : 0
       var dateInfo = {
         'day': startDay,
         'date_ri': i,
         'uniqueKey': uniqueKey++,
         'isCurrentMonth': 1,
-        'isToday': 0,
-        'isSelected': 0,
       }
       if (today == i) {
-        dateInfo['isToday'] = 1
         dateInfo['isSelected'] = 1
         self.setData({
-          currentSelected: dateInfo
+          currentSelected: dateInfo,
+          todayIndex: i
         })
       }
       dateList.push(dateInfo)
@@ -88,8 +86,6 @@ Page({
           'date_ri': day,
           'uniqueKey': uniqueKey++,
           'isCurrentMonth': 0,
-          'isToday': 0,
-          'isSelected': 0,
         })
         day++
       }
@@ -115,19 +111,8 @@ Page({
   handleSelectedDay(evt) {
     var self = this
     var selectedDate = evt.currentTarget.dataset['date']
-    var selectedIndex = selectedDate['uniqueKey']
-    selectedDate['isSelected'] = 1
     
-    var tempSelected = self.data.currentSelected
-    var tempIndex = tempSelected['uniqueKey']
-    tempSelected['isSelected'] = 0
-    
-
-    let tempSelectedKeyStr = 'dateList[' + tempIndex + ']'
-    let newSelectedKeyStr = 'dateList[' + selectedIndex + ']'
     self.setData({
-      tempSelectedKeyStr: tempSelected,
-      selectedIndex: selectedDate,
       currentSelected: selectedDate
     })
 
@@ -138,8 +123,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let today = new Date().getDate()
-    this.data.currentSelected = today
+    
     this.handleShowCalendar()
   },
 

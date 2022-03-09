@@ -11,7 +11,7 @@
   </view>
 
   <view class="date_panel">
-    <view class="{{dateList[index]['isSelected']==0? 'date_label': 'selected_label'}}" wx:for="{{dateList}}" wx:key="uniqueKey" style="color: {{dateList[index]['isCurrentMonth']==1? 'black' : 'gray'}}" data-date="{{dateList[index]}}" bindtap="handleSelectedDay">{{item.date_ri}}</view>
+    <view class="'date_label' {{currentSelected['uniqueKey']==index? 'selected_label': ''}} {{todayIndex==index-1? 'today_label':''}}" wx:for="{{dateList}}" wx:key="uniqueKey" style="color: {{dateList[index]['isCurrentMonth']==1? 'black' : 'gray'}}" data-date="{{dateList[index]}}" bindtap="handleSelectedDay">{{item.date_ri}}</view>
   </view>
 </view>
 
