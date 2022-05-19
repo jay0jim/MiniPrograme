@@ -1,0 +1,21 @@
+.current_date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: coral;
+  /* background-color: darkcyan; */
+}
+
+.current_time_stamp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: burlywood;
+  /* background-color: darkgreen; */
+}
