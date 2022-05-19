@@ -33,9 +33,9 @@ Page({
     console.log('login')
     wx.login({
       timeout: 100000,
-      success: function(res) {
+      success: function (res) {
         // 成功获取用户登录凭证
-        if(res.code) {
+        if (res.code) {
           console.log('用户登录凭证' + res.code)
 
 
@@ -52,13 +52,25 @@ Page({
   scanTest() {
     var that = this
     wx.scanCode({
-      success: function(res) {
+      success: function (res) {
         console.log(res.result)
         that.setData({
           scanResult: res.result
         })
       }
 
+    })
+  },
+
+  requestTest() {
+    wx.request({
+      url: 'https://test.kiwistudio.work/api',
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }
     })
   },
 

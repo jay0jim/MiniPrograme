@@ -27,9 +27,9 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -47,8 +47,8 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.4",
-  "appid": "wx9592897ae50d176f",
+  "libVersion": "2.24.1",
+  "appid": "wx3d4444da8e122c8f",
   "projectname": "Layouts",
   "debugOptions": {
     "hidedInDevtools": []
@@ -59,6 +59,10 @@
     "servePath": ""
   },
   "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {
+    "qywx_simulator_plugin": "2.4.0"
+  },
   "condition": {
     "search": {
       "list": []

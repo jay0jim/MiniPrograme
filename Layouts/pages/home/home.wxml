@@ -12,5 +12,7 @@
 <button bindtap="scanTest">扫码测试</button>
 <text>{{scanResult}}</text>
 
+<button bindtap="requestTest">请求测试</button>
+
 
 
