@@ -1,22 +1,29 @@
 {
-  "pages":[
+  "pages": [
+    "pages/qrcode/qrcode",
     "pages/wxml/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/details/details"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "MiniProgram",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "list": [
-      {"text": "Home", "pagePath": "pages/wxml/index"},
-      {"text": "Logs", "pagePath": "pages/logs/logs"}
+      {
+        "text": "Home",
+        "pagePath": "pages/qrcode/qrcode"
+      },
+      {
+        "text": "Logs",
+        "pagePath": "pages/logs/logs"
+      }
     ]
   }
 }

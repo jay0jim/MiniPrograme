@@ -1,0 +1,12 @@
+<!--pages/qrcode.wxml-->
+<text>pages/qrcode.wxml</text>
+<view></view>
+<!-- <div id='myqrcode'>aaa</div> -->
+
+<view>
+  <button bindtap="createQRCode" type="primary">生成二维码</button>
+  <view class="qrcode">
+    <canvas type="2d" style="width: 260rpx; height: 260rpx;" id="myQrcode"></canvas>
+    <canvas type="2d" style="width: 256rpx; height: 256rpx; background-color: aqua;" id="testCanvas"></canvas>
+  </view>
+</view>
