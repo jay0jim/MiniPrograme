@@ -10,3 +10,8 @@
     <canvas type="2d" style="width: 256rpx; height: 256rpx; background-color: aqua;" id="testCanvas"></canvas>
   </view>
 </view>
+
+<view>
+  <button bindtap="myScanCode" type="primary">扫码</button>
+  <text>{{scanResult}}</text>
+</view>

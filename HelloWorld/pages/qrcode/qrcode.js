@@ -7,7 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    qrcodeText: 'https://www.baidu.com'
+    qrcodeText: 'https://www.baidu.com',
+    scanResult: '',
+  },
+
+  myScanCode() {
+    var that = this
+    wx.scanCode({
+      success(res) {
+        wx.navigateTo({
+          url: '../wxml/index',
+        })
+        that.setData({
+          scanResult: res.result,
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
   },
 
   createQRCode() {
