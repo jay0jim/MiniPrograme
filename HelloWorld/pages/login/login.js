@@ -1,6 +1,7 @@
 // pages/login.js
 
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+var app = getApp()
 
 
 Page({
@@ -11,13 +12,39 @@ Page({
   data: {
     avatarUrl: defaultAvatarUrl,
     logs: '',
+    session_id: '',
   },
 
   loginTest() {
+
     wx.login({
       success: (res) => {
         if(res.code) {
-          console.log(res)
+          var session_id = app.globalData.session_id
+          var data_dic = {
+            res_code: res.code,
+          }
+          if(session_id != null) {
+            data_dic['session_id'] = session_id
+          }
+
+
+          wx.request({
+            url: 'https://test.kiwistudio.work/kiwi/user/login',
+            data: data_dic,
+            success: (r) => {
+              console.log(r.data.session_id)
+              // 把session_id保存到本地
+              app.globalData.session_id = r.data.session_id
+              wx.setStorageSync('session_id', r.data.session_id)
+
+              that.setData({
+                session_id: r.data.session_id
+              })
+            },
+            method: 'POST'
+          })
+          
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
         }
@@ -40,14 +67,12 @@ Page({
     const that = this
     console.log('请求后台')
     wx.request({
-      url: 'https://test.kiwistudio.work/api/test',
+      url: 'https://test.kiwistudio.work/kiwi/test',
       data: {
         info: 'from mini-program'
       },
       success: (res) => {
-        that.setData({
-          logs: res.data.toString()
-        })
+        console.log(res)
       },
       method: 'POST'
     })
@@ -57,7 +82,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var session_id = app.globalData.session_id
 
+    this.setData({
+      session_id: session_id,
+    })
   },
 
   /**

@@ -6,5 +6,5 @@
   <button type="primary" bindtap="onNetworkTest">请求后台</button>
 </view>
 <view>
-  <text>{{logs}}</text>
+  <text>{{session_id}}</text>
 </view>
