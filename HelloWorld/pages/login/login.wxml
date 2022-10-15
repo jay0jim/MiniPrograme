@@ -2,8 +2,8 @@
   <button style="display: flex; justify-content: center; align-items: center;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
     <image style="width: 150rpx; height: 150rpx;" src="{{avatarUrl}}"></image>
   </button>
-  <button type="primary" bindtap="loginTest">登录</button>
-  <button type="primary" bindtap="onNetworkTest">请求后台</button>
+  <button type="primary" bindtap="onQuickLogin">登录</button>
+  <button type="primary" bindtap="onNewTest">请求后台</button>
 </view>
 <view>
   <text>{{session_id}}</text>
