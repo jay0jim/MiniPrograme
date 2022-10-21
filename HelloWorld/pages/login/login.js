@@ -18,17 +18,21 @@ Page({
 
   onQuickLogin() {
     // 先使用session_id登录，如果已过期，则再请求res_code后再登录
-    wx.request({
+    var that = this
+    utils.kiwiRequestWithSessionId({
       url: 'https://api.kiwistudio.work/kiwi/user/login',
       method: 'POST',
       data:{
-        'session_id': this.data.session_id
+
       },
-      success: (res) => {
+      success: (res, s_id) => {
         // 登录出错
         if (res.data.code == 200) {
           // 登录成功
-          console.log(res.data.msg, res.data.session_id)
+          console.log(res.data.msg)
+          that.setData({
+            session_id: s_id
+          })
           
         } else {
           
@@ -42,6 +46,31 @@ Page({
         }
       }
     })
+
+    // wx.request({
+    //   url: 'https://api.kiwistudio.work/kiwi/user/login',
+    //   method: 'POST',
+    //   data:{
+    //     'session_id': this.data.session_id
+    //   },
+    //   success: (res) => {
+    //     // 登录出错
+    //     if (res.data.code == 200) {
+    //       // 登录成功
+    //       console.log(res.data.msg, res.data.session_id)
+          
+    //     } else {
+          
+    //       // 提示需请求res_code再登录
+    //       if (res.data.code == 400200) {
+    //         console.log('需要重新登陆')
+    //         this.loginTest()
+    //       }
+
+    //       console.log(res)
+    //     }
+    //   }
+    // })
   },
 
   loginTest() {
@@ -53,21 +82,34 @@ Page({
             res_code: res.code,
           }
 
-          wx.request({
+          utils.kiwiRequestWithSessionId({
             url: 'https://api.kiwistudio.work/kiwi/user/login',
             data: data_dic,
             method: 'POST',
-            success: (res) => {
-              console.log(res.data.msg, res.data.session_id)
+            success: (res, s_id) => {
+              console.log(res.data.msg)
 
               that.setData({
-                session_id: res.data.session_id
+                session_id: s_id
               })
-
-              app.globalData.session_id = res.data.session_id
-              wx.setStorageSync('session_id', res.data.session_id)
             }
           })
+
+          // wx.request({
+          //   url: 'https://api.kiwistudio.work/kiwi/user/login',
+          //   data: data_dic,
+          //   method: 'POST',
+          //   success: (res) => {
+          //     console.log(res.data.msg, res.data.session_id)
+
+          //     that.setData({
+          //       session_id: res.data.session_id
+          //     })
+
+          //     app.globalData.session_id = res.data.session_id
+          //     wx.setStorageSync('session_id', res.data.session_id)
+          //   }
+          // })
 
 
         } else {
@@ -136,12 +178,29 @@ Page({
       success: (res, session_id) => {
         var that = this
         console.log(session_id)
+        console.log(res.data.info)
 
         that.setData({
           session_id: session_id
         })
       },
       method: 'POST'
+    })
+  },
+
+  onLogout() {
+    utils.kiwiRequestWithSessionId({
+      url: 'https://api.kiwistudio.work/kiwi/logout',
+      success: (res, session_id) => {
+        var that = this
+        console.log(session_id)
+        console.log(res)
+
+        that.setData({
+          session_id: session_id
+        })
+      },
+
     })
   },
 

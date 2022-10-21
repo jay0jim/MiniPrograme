@@ -57,8 +57,12 @@ function RequestBySessionId(requestParam){
         if (cookie.indexOf('session=') != -1) {
           // 使用正则表达式把session=XXXXX提取出来
           // 并保存到全局变量和本地中
-          var session_id = cookie.match("\\bsession=([^;]*)\\b")[0]
-          console.log(session_id)
+          var session_id = cookie.match("\\bsession=([^;]*)\\b")
+          if (session_id != null) {
+            session_id = session_id[0]
+          } else {
+            session_id = ''
+          }
   
           app.globalData.session_id = session_id
           wx.setStorageSync('session_id', session_id)

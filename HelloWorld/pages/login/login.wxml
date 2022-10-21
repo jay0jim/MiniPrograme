@@ -4,6 +4,7 @@
   </button>
   <button type="primary" bindtap="onQuickLogin">登录</button>
   <button type="primary" bindtap="onNewTest">请求后台</button>
+  <button type="primary" bindtap="onLogout">退出登录</button>
 </view>
 <view>
   <text>{{session_id}}</text>
