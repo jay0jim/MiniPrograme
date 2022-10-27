@@ -1,1 +1,9 @@
 /* pages/login.wxss */
+.create_event {
+  display: flex;
+  background-color: lightslategrey;
+  justify-content: center;
+  align-items: baseline;
+  /* width: 100%;
+  height: 1001 rpx; */
+}

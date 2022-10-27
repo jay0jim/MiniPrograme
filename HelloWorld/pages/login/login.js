@@ -29,7 +29,7 @@ Page({
         // 登录出错
         if (res.data.code == 200) {
           // 登录成功
-          console.log(res.data.msg)
+          console.log(res.data.msg, s_id)
           that.setData({
             session_id: s_id
           })
@@ -87,7 +87,7 @@ Page({
             data: data_dic,
             method: 'POST',
             success: (res, s_id) => {
-              console.log(res.data.msg)
+              console.log(res.data.msg, s_id)
 
               that.setData({
                 session_id: s_id
@@ -190,7 +190,7 @@ Page({
 
   onLogout() {
     utils.kiwiRequestWithSessionId({
-      url: 'https://api.kiwistudio.work/kiwi/logout',
+      url: 'https://api.kiwistudio.work/kiwi/user/logout',
       success: (res, session_id) => {
         var that = this
         console.log(session_id)
@@ -201,6 +201,41 @@ Page({
         })
       },
 
+    })
+  },
+
+  onCheckSession() {
+    utils.kiwiRequestWithSessionId({
+      url: 'https://api.kiwistudio.work/kiwi/user/session',
+      success: (res, session_id) => {
+        var that = this
+        console.log(session_id)
+        console.log(res.data)
+      },
+    })
+  },
+
+  onCreateEvent() {
+    utils.kiwiRequestWithSessionId({
+      url: 'https://api.kiwistudio.work/kiwi/user/create_event',
+      // data: {
+      //   title: '测试普通活动，2小时',
+      //   date: '2022-10-27 10:00:00',
+      //   duration: 120,
+      //   content: '测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时测试普通活动，2小时'
+      // },
+      data: {
+        title: '测试全天活动，2天',
+        date: '2022-10-27',
+        duration: -2,
+        content: '测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天测试全天活动，2天'
+      },
+      success: (res, session_id) => {
+        var that = this
+        console.log(res.data)
+
+      },
+      method: 'POST'
     })
   },
 

@@ -9,3 +9,9 @@
 <view>
   <text>{{session_id}}</text>
 </view>
+<view>
+  <button type="primary" bindtap="onCheckSession">查看登录状态</button>
+</view>
+<view class="create_event">
+  <button type="primary" bindtap="onCreateEvent">新增活动</button>
+</view>
