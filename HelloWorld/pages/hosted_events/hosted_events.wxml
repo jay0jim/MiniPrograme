@@ -1,0 +1,17 @@
+<!--pages/hosted_events.wxml-->
+<text>pages/hosted_events.wxml</text>
+
+
+
+<view style="margin-top:10px; padding:10px; background:#aeaedf;" wx:for="{{list}}" wx:key="key">
+  <view>
+    <text style="font-size: 14px;"> 日期： {{item.a}}</text>
+  </view>
+  <view>
+    <text style="font-size: 14px;"> 活动主题： {{item.b}}</text>
+  </view>
+  <view>
+    <text style="font-size: 14px;"> 活动内容： {{item.c}}</text>
+  </view>
+
+</view>

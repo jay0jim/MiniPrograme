@@ -239,6 +239,15 @@ Page({
     })
   },
 
+  onGetHostedEvents() {
+    wx.navigateTo({
+      url: '../hosted_events/hosted_events',
+      success: (res) => {
+        // res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'aaa' })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
