@@ -1,0 +1,16 @@
+<scroll-view scroll-y="true" style="height: 100vh;" enhanced="true" paging-enabled="true">
+  <view wx:for="{{[1, 2, 3]}}" wx:key="year">
+    <view class="year_background">
+      <view class="year_title">2022</view>
+      <view class="year_cell_container">
+        <view class="year_cell" wx:for="{{months}}" wx:key="month" wx:for-index="month" wx:for-item="month_name" bindtap="onYearCellTap" data-month_name="{{month_name}}" data-month="{{month}}">
+          <view class="year_cell_title">{{month_name}}</view>
+          <view class="year_cell_num_container">
+            <view class="year_cell_num" wx:for="{{month_days[month]}}" wx:for-item="day" wx:key="num">{{day}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

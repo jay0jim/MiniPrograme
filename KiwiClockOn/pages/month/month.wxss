@@ -1,0 +1,60 @@
+.month_background {
+  display: flex;
+  flex-direction: column;
+  background-color: crimson;
+  height: 99vh;
+}
+
+.month_title {
+  display: flex;
+  width: 100vw;
+  height: 150rpx;
+  background-color: darkslategray;
+  justify-content: center;
+  align-items: center;
+  font-size: 90rpx;
+  font-weight: 900;
+}
+
+.month_cell_container {
+  display: flex;
+  background-color: blueviolet;
+  height: 90%;
+  flex-direction: column;
+  width: 100%;
+}
+
+.day_name_container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 8vw;
+  background-color: cadetblue;
+}
+
+.day_name {
+  display: flex;
+  width: 14%;
+  height: calc(8vw);
+  background-color: burlywood;
+  justify-content: center;
+  align-items: center;
+}
+
+.days_container {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  background-color: blueviolet;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 5rpx;
+}
+
+.days {
+  width: 14%;
+  height: calc(14vw);
+  background-color: brown;
+  margin-bottom: 5rpx;
+}

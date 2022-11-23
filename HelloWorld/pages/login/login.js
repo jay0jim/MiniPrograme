@@ -29,7 +29,7 @@ Page({
         // 登录出错
         if (res.data.code == 200) {
           // 登录成功
-          console.log(res.data.msg, s_id)
+          console.log(res.data, s_id)
           that.setData({
             session_id: s_id
           })
@@ -39,7 +39,7 @@ Page({
           // 提示需请求res_code再登录
           if (res.data.code == 400200) {
             console.log('需要重新登陆')
-            this.loginTest()
+            that.loginTest()
           }
 
           console.log(res)
@@ -47,30 +47,6 @@ Page({
       }
     })
 
-    // wx.request({
-    //   url: 'https://api.kiwistudio.work/kiwi/user/login',
-    //   method: 'POST',
-    //   data:{
-    //     'session_id': this.data.session_id
-    //   },
-    //   success: (res) => {
-    //     // 登录出错
-    //     if (res.data.code == 200) {
-    //       // 登录成功
-    //       console.log(res.data.msg, res.data.session_id)
-          
-    //     } else {
-          
-    //       // 提示需请求res_code再登录
-    //       if (res.data.code == 400200) {
-    //         console.log('需要重新登陆')
-    //         this.loginTest()
-    //       }
-
-    //       console.log(res)
-    //     }
-    //   }
-    // })
   },
 
   loginTest() {
@@ -87,7 +63,7 @@ Page({
             data: data_dic,
             method: 'POST',
             success: (res, s_id) => {
-              console.log(res.data.msg, s_id)
+              console.log(res.data, s_id)
 
               that.setData({
                 session_id: s_id

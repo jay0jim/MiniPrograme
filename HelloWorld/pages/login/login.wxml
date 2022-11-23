@@ -15,4 +15,5 @@
 <view class="create_event">
   <button type="primary" bindtap="onCreateEvent">新增活动</button>
   <button type="primary" bindtap="onGetHostedEvents">查看我的活动</button>
+  <!-- <button type="primary" bindtap="onGetHostedEvents">参与活动</button> -->
 </view>
