@@ -1,0 +1,26 @@
+@font-face {
+  font-family: AlibabaSans-Regular;
+  src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.eot) format('embedded-opentype'),
+    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.otf) format('opentype'),
+    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.ttf) format('TrueType'),
+    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.woff) format('woff'),
+    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.woff2) format('woff2');
+}
+
+.chocolate {
+  background-color: chocolate;
+  height: calc(100vh - 100rpx);
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.crimson {
+  background-color: crimson;
+  height: calc(100vh - 100rpx);
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}

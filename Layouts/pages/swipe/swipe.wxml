@@ -1,0 +1,11 @@
+<!-- <view style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; ">
+  <view style="background-color: cyan;">
+    <view class="blue" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd"></view>
+    <view class="red" style="--test_left--: {{test_left}}px" animation="{{animationData}}"></view>
+    <button style="position: absolute; top: 500px; left: 100px;" bindtap="onButtonTapped">{{showText}}</button>
+  </view>
+</view> -->
+<view class="main_container" >
+  <view style="position: absolute; left: 0px; height: 100%; top: 0px; background-color: tomato; width: 100vw;"></view>
+  <view style="position: absolute; left: 200vw; height: 100%; top: 0px; background-color: darkorange; width: 100vw;"></view>
+</view>

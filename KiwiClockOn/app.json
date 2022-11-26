@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/calendar/calendar",
     "pages/year/year",
     "pages/month/month",
     "pages/index/index",
@@ -7,9 +8,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#7458af",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,26 @@
+.blue {
+  height: 500px;
+  width: 100vw;
+  background-color: cornflowerblue;
+  position: absolute;
+  left: 0px;
+  top: 0vh;
+}
+
+.red {
+  height: 500px;
+   width: 100vw; 
+   background-color: crimson; 
+   left: var(--test_left--); 
+   position: absolute; 
+   top: 0vh;
+}
+
+.main_container{
+  width: 300vw; 
+  height: 40vh; 
+  position: absolute; 
+  left: -100vw; 
+  top: 0px; 
+  background-color: teal;
+}
