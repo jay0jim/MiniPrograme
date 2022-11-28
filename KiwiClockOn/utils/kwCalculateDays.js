@@ -8,14 +8,14 @@ function kwCalculateDays(year, month) {
     daysOfMonth[1] = 29
 
   var firstDay = new Date(year, month, 1).getDay()
-  var month_days = ['日', '一', '二', '三', '四', '五', '六']
+  var month_days = []
     for (var i = 0; i < firstDay; i++) {
     month_days.push('')
   }
   for (var i = 1; i < daysOfMonth[month] + 1; i++) {
-    month_days.push(i.toString())
+    month_days.push(i)
   }
-  var rest = 49 - daysOfMonth[month] - firstDay - 7
+  var rest = 42 - daysOfMonth[month] - firstDay
   for (var i = 0; i < rest; i++) {
     month_days.push('')
   }

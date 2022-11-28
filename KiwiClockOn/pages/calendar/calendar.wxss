@@ -1,26 +1,72 @@
-@font-face {
-  font-family: AlibabaSans-Regular;
-  src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.eot) format('embedded-opentype'),
-    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.otf) format('opentype'),
-    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.ttf) format('TrueType'),
-    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.woff) format('woff'),
-    url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaSans/AlibabaSans-Regular/AlibabaSans-Regular.woff2) format('woff2');
+.calendar-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.chocolate {
-  background-color: chocolate;
-  height: calc(100vh - 100rpx);
+.calendar-month-name {
+  background-color: blueviolet;
+  height: 100rpx;
   width: 100vw;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  font-size: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.crimson {
+.calendar-day-name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: burlywood;
+}
+
+.calendar-day-name {
+  width: 14vw;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.calender-day-cell-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.calender-day-cell {
+  width: 14vw;
+  height: calc(16vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12rpx;
+}
+
+.unchecked {
+  background-color: '#f4f4f4';
+}
+
+.checked {
   background-color: crimson;
-  height: calc(100vh - 100rpx);
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-  left: 0px;
 }
+
+/* .calender-day-cell-unchecked {
+  width: 14vw;
+  height: calc(12vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calender-day-cell-checked {
+  width: 14vw;
+  height: calc(12vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: crimson;
+} */

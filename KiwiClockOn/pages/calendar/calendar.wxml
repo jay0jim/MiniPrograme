@@ -1,17 +1,9 @@
-<view class="main-container" style="background-color: #f8f8f8;">
-
-  <view>
-    <fui-segmented-control style="font-family: AlibabaSans-Regular;" values="{{['segmented1', 'segmented2']}}" type="text" radius="20" color="#777777" active-color="#7458af" height="100" size="35" bind:click="onSegmentClick"></fui-segmented-control>
+<view class="calendar-container">
+  <view class="calendar-month-name">2022.11</view>
+  <view class="calendar-day-name-container">
+    <view class="calendar-day-name" wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this" wx:for-item="dayName">{{dayName}}</view>
   </view>
-
-  <!-- <view  style="display: flex; flex-direction: column;justify-content: flex-start; position: relative; top: 0px;">
-    <view class="chocolate" bindtap="onTapped" ></view>
-    <view class="crimson" animation="{{animationData}}" style="--crimsonTop--: {{crimsonTop}}px"></view>
-  </view> -->
-  <view style="position: relative; top: 0px;">
-    <view class="chocolate" hidden="{{activeIndex != 0}}"></view>
-    <view class="crimson" hidden="{{activeIndex != 1}}"></view>
+  <view class="calender-day-cell-container">
+    <view class="calender-day-cell {{dayChecked==day? 'checked' : 'unchecked'}}" wx:for="{{days}}" wx:key="days" wx:for-item="day" bindtap="onDayCellTapped" data-dayValue="{{day}}">{{day}}</view>
   </view>
-
 </view>
-
