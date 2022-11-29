@@ -1,9 +1,35 @@
-<view class="calendar-container">
-  <view class="calendar-month-name">2022.11</view>
-  <view class="calendar-day-name-container">
-    <view class="calendar-day-name" wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this" wx:for-item="dayName">{{dayName}}</view>
+<view style="height: 100vh; width: 100vw; background-color: #f7f7f7;">
+
+  <view class="calendar-container">
+    <view class="calendar-top-bar-container">
+      <!-- <view class="calendar-prev-next">《</view> -->
+      <image class="calendar-prev-next" src="../../icons/arrow-left-bold.png" bindtap="onPrevMonth"></image>
+      <view class="calendar-month-name" bindtap="onShowPopup">
+        {{currentMonthStr}}
+      </view>
+      <!-- <view class="calendar-prev-next">》</view> -->
+      <image class="calendar-prev-next" src="../../icons/arrow-right-bold.png" bindtap="onNextMonth"></image>
+    </view>
+
+    <view class="calendar-day-name-container">
+      <view class="calendar-day-name" wx:for="{{ ['日','一','二','三','四','五','六'] }}" wx:key="*this" wx:for-item="dayName">{{ dayName }}</view>
+    </view>
+
+    <view class="calender-day-cell-container">
+      <view class="calender-day-cell-bg">{{bgMonth}}</view>
+
+      <view class="calender-day-cell {{ dayChecked==day? 'checked' : 'unchecked' }}" wx:for="{{ days }}" wx:key="days" wx:for-item="day" bindtap="onDayCellTapped" data-dayValue="{{ day }}">
+        {{ day }}
+        <view class="calendar-cell-background" style="--dayEventCount: {{ dayEvents[index] }};"></view>
+      </view>
+
+    </view>
+
+
+    <van-popup show="{{ isShow }}" round bind:close="onClose" position="bottom">
+      <van-datetime-picker type="year-month" value="{{ currentDate }}" title="选择年月" bind:cancel="onClose" bind:confirm="onConfirm" />
+    </van-popup>
+
   </view>
-  <view class="calender-day-cell-container">
-    <view class="calender-day-cell {{dayChecked==day? 'checked' : 'unchecked'}}" wx:for="{{days}}" wx:key="days" wx:for-item="day" bindtap="onDayCellTapped" data-dayValue="{{day}}">{{day}}</view>
-  </view>
+
 </view>

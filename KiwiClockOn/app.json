@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/calendar/calendar",
+    "pages/index/index",
     "pages/year/year",
     "pages/month/month",
-    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f4f4f4",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },

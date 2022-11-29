@@ -1,3 +1,0 @@
-<view class="{{classList}}" style="padding-left:{{gutter}}rpx;	padding-right:{{gutter}}rpx">
-	<slot></slot>
-</view>

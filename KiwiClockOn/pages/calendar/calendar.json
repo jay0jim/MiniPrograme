@@ -1,8 +1,9 @@
 {
   "usingComponents": {
-    "fui-segmented-control": "../../components/firstui/fui-segmented-control/fui-segmented-control",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "van-calendar": "@vant/weapp/calendar/index"
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-popup": "@vant/weapp/popup/index"
   }
 }
