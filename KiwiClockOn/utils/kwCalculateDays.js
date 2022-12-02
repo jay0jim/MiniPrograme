@@ -22,6 +22,19 @@ function kwCalculateDays(year, month) {
   return month_days
 }
 
+function kwGetMonthDays(year, month) {
+  var daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+  // 判断是否为闰年
+  if (year % 4 == 0 && year % 100 != 0)
+    daysOfMonth[1] = 29
+  else if (year % 400 == 0)
+    daysOfMonth[1] = 29
+
+  return daysOfMonth[month]
+}
+
 export default {
   kwCalculateDays,
+  kwGetMonthDays,
 }

@@ -1,0 +1,166 @@
+.week-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 90vh;
+  width: 100vw;
+  background-color: #f7f7f7;
+  z-index: -10;
+}
+
+.week-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100vw - 30rpx);
+  height: 100rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+.week-week-number-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+  /* background-color: white; */
+  position: relative;
+  
+}
+.week-day-name-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+}
+.week-day-name-cell {
+  width: calc((89vw - 30rpx) / 7);
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+}
+
+
+.week-allday-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100vw - 30rpx);
+  height: 70rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+.week-allday-blank-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  /* border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx; */
+  position: relative;
+  background-color: white;
+  border-top-style: solid;
+  border-top-color: rgba(220, 20, 60, 0.6);
+  border-bottom-style: solid;
+  border-bottom-color: rgba(220, 20, 60, 0.6);
+  box-sizing: border-box;
+  color: #666666;
+  font-size: small;
+}
+.week-allday-counts-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  /* border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx; */
+  
+}
+.week-allday-cell {
+  width: calc((89vw - 30rpx) / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-style: solid;
+  border-top-color: rgba(220, 20, 60, 0.6);
+  border-bottom-style: solid;
+  border-bottom-color: rgba(220, 20, 60, 0.6);
+  box-sizing: border-box;
+}
+
+
+
+.week-time-table {
+  width: 100vw;
+  height: calc(100% - 120rpx - 70rpx - 14rpx);
+  margin-top: 9rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+.week-time-table-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  width: calc(100vw - 30rpx);
+  height: 120rpx;
+}
+.week-current-line {
+  position: absolute;
+  top: calc(120rpx * var(--offset-top-ratio));
+  z-index: 999;
+  width: 100vw;
+  height: 2rpx;
+  background-color: red;
+}
+.week-hour-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 10vw;
+  background-color: white;
+  color: #666666;
+  font-size: 20rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dddddd;
+}
+#cell-0 {
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+}
+#cell-23 {
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+  border-bottom-style: none;
+}
+.week-event-marks-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dddddd;
+  box-sizing: border-box;
+}
+.week-event-mark-cell {
+  width: calc((89vw - 30rpx) / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #dddddd;
+  box-sizing: border-box;
+}
+#mark-6{
+  border-right-style: none;
+}

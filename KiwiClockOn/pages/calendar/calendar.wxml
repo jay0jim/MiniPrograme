@@ -2,12 +2,11 @@
 
   <view class="calendar-container">
     <view class="calendar-top-bar-container">
-      <!-- <view class="calendar-prev-next">《</view> -->
+
       <image class="calendar-prev-next" src="../../icons/arrow-left-bold.png" bindtap="onPrevMonth"></image>
       <view class="calendar-month-name" bindtap="onShowPopup">
         {{currentMonthStr}}
       </view>
-      <!-- <view class="calendar-prev-next">》</view> -->
       <image class="calendar-prev-next" src="../../icons/arrow-right-bold.png" bindtap="onNextMonth"></image>
     </view>
 
@@ -18,7 +17,7 @@
     <view class="calender-day-cell-container">
       <view class="calender-day-cell-bg">{{bgMonth}}</view>
 
-      <view class="calender-day-cell {{ dayChecked==day? 'checked' : 'unchecked' }}" wx:for="{{ days }}" wx:key="days" wx:for-item="day" bindtap="onDayCellTapped" data-dayValue="{{ day }}">
+      <view class="calender-day-cell {{ dayChecked==day? 'checked' : 'unchecked' }} {{(today==day)&&(bgMonth==currentMonth)? 'today' : ''}}" wx:for="{{ days }}" wx:key="days" wx:for-item="day" bindtap="onDayCellTapped" data-dayValue="{{ day }}">
         {{ day }}
         <view class="calendar-cell-background" style="--dayEventCount: {{ dayEvents[index] }};"></view>
       </view>

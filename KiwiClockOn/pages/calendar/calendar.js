@@ -15,6 +15,8 @@ Page({
     currentDate: -1, // 当前日期的时间戳
     currentMonthStr: '',
     bgMonth: -1,
+    today: -1,
+    currentMonth: -1,
   },
 
   onPrevMonth() {
@@ -173,6 +175,7 @@ Page({
     var currentDate = new Date().getTime()
     var year = new Date().getFullYear()
     var month = new Date().getMonth()
+    var today = new Date().getDate()
     var currentMonthStr = year.toString() + '.' + (month + 1).toString()
 
     var days = daysUtils.kwCalculateDays(year, month)
@@ -198,6 +201,8 @@ Page({
       currentDate: currentDate,
       currentMonthStr: currentMonthStr,
       bgMonth: month + 1,
+      today: today,
+      currentMonth: month + 1,
     })
   },
 

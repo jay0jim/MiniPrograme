@@ -1,15 +1,14 @@
 {
   "pages": [
+    "pages/week/week",
     "pages/calendar/calendar",
-    "pages/index/index",
     "pages/year/year",
-    "pages/month/month",
-    "pages/logs/logs"
+    "pages/month/month"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "Kiwi 日历",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
