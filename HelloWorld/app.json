@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/test/test",
     "pages/login/login",
     "pages/qrcode/qrcode",
     "pages/wxml/index",
@@ -14,7 +15,6 @@
     "navigationBarTitleText": "MiniProgram",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "list": [

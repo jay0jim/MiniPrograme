@@ -1,0 +1,17 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+
+<van-grid>
+  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="文字" />
+</van-grid>
+
+<view style="width: 50vw;">
+  <van-grid column-num="7">
+    <van-grid-item use-slot wx:for="{{ 7*24 }}" bind:click>
+    aaa
+    </van-grid-item>
+  </van-grid>
+</view>

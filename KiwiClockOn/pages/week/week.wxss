@@ -45,6 +45,21 @@
   justify-content: center;
   align-items: center;
   color: #666666;
+  position: relative;
+  z-index: 2;
+}
+.week-is-today {
+  color: #f7f7f7;
+}
+.week-is-today-background {
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(220, 20, 60, 0.6);
+  background-color: crimson;
+  top: 17rpx;
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 23rpx;
 }
 
 
@@ -53,7 +68,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: calc(100vw - 30rpx);
-  height: 70rpx;
+  height: 50rpx;
   margin-left: 15rpx;
   margin-right: 15rpx;
 }
@@ -68,8 +83,10 @@
   position: relative;
   background-color: white;
   border-top-style: solid;
+  border-top-width: 4rpx;
   border-top-color: rgba(220, 20, 60, 0.6);
   border-bottom-style: solid;
+  border-bottom-width: 4rpx;
   border-bottom-color: rgba(220, 20, 60, 0.6);
   box-sizing: border-box;
   color: #666666;
@@ -89,10 +106,13 @@
   justify-content: center;
   align-items: center;
   border-top-style: solid;
+  border-top-width: 4rpx;
   border-top-color: rgba(220, 20, 60, 0.6);
   border-bottom-style: solid;
+  border-bottom-width: 4rpx;
   border-bottom-color: rgba(220, 20, 60, 0.6);
   box-sizing: border-box;
+  font-size: smaller;
 }
 
 
@@ -110,11 +130,11 @@
   justify-content: space-between;
   position: relative;
   width: calc(100vw - 30rpx);
-  height: 120rpx;
+  height: 80rpx;
 }
 .week-current-line {
   position: absolute;
-  top: calc(120rpx * var(--offset-top-ratio));
+  top: calc(80rpx * var(--offset-top-ratio));
   z-index: 999;
   width: 100vw;
   height: 2rpx;
@@ -152,15 +172,26 @@
   box-sizing: border-box;
 }
 .week-event-mark-cell {
-  width: calc((89vw - 30rpx) / 7);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: calc((89vw - 30rpx) / 7);
   border-right-style: solid;
   border-right-width: 1px;
   border-right-color: #dddddd;
   box-sizing: border-box;
+  position: relative;
 }
 #mark-6{
   border-right-style: none;
+}
+.week-events {
+  background-color: rgba(220, 20, 60, 0.6);
+  z-index: var(--event-z-index);
+  border-left: solid;
+  border-left-width: 8rpx;
+  border-left-color: crimson;
+  box-sizing: border-box;
+  position: relative;
+  top: 3rpx;
+  width: calc(1 / var(--event-count) * 100%);
+  height: calc(var(--event-duration) * 80rpx - 8rpx);
 }

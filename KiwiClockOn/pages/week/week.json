@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-sticky": "@vant/weapp/sticky/index",
     "van-divider": "@vant/weapp/divider/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "disableScroll":true
 }
