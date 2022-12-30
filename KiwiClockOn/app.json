@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/week/week",
     "pages/calendar/calendar",
     "pages/year/year",
@@ -11,5 +12,21 @@
     "navigationBarTitleText": "Kiwi 日历",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "text": "Home",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "Week",
+        "pagePath": "pages/week/week"
+      },
+      {
+        "text": "Month",
+        "pagePath": "pages/calendar/calendar"
+      }
+    ]
+  }
 }

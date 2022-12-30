@@ -1,1 +1,14 @@
-/* pages/test/test.wxss */
+.userinfo-avatar-wrapper {
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.userinfo-avatar {
+  overflow: hidden;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}

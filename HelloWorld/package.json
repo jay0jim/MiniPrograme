@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@vant/weapp": "^1.10.8"
+    "@vant/weapp": "^1.10.8",
+    "cos-js-sdk-v5": "^1.4.15"
   }
 }

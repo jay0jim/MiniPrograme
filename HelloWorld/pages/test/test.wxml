@@ -1,17 +1,5 @@
-<!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
-
-<van-grid>
-  <van-grid-item icon="photo-o" text="文字" />
-  <van-grid-item icon="photo-o" text="文字" />
-  <van-grid-item icon="photo-o" text="文字" />
-  <van-grid-item icon="photo-o" text="文字" />
-</van-grid>
-
-<view style="width: 50vw;">
-  <van-grid column-num="7">
-    <van-grid-item use-slot wx:for="{{ 7*24 }}" bind:click>
-    aaa
-    </van-grid-item>
-  </van-grid>
+<view class="userinfo-avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="userinfo-avatar" src="{{avatarURL}}"></image>
 </view>
+
+<button bindtap="onUploadFile">上传文件</button>
