@@ -59,7 +59,7 @@ Page({
       avatarURL: avatarURL
     })
     // wx.setStorageSync('avatarURL', avatarURL)
-    console.log(wx.getStorageSync('avatarURL'))
+    // console.log(wx.getStorageSync('avatarURL'))
   },
 
   /**

@@ -3,3 +3,5 @@
 </view>
 
 <button bindtap="onUploadFile">上传文件</button>
+
+<image src="https://kwco-1300883012.cos.ap-guangzhou.myqcloud.com/oV0QX5cQJ6BCo3uLqUAyVaj_3mNk.jpeg" referrerPolicy="origin"></image>

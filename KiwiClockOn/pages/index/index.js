@@ -11,6 +11,9 @@ Page({
     nickname: '点击设置头像和昵称',
 
     showUserInfoPopup: false,
+
+    // 用户openid
+    openid: '',
   },
 
   showUserInfo(e) {
@@ -36,8 +39,18 @@ Page({
     this.setData({
       avatarURL: avatarURL
     })
-    wx.setStorageSync('avatarURL', avatarURL)
-    console.log(wx.getStorageSync('avatarURL'))
+    wx.uploadFile({
+      filePath: avatarURL,
+      name: 'avatar',
+      url: 'https://api.kiwistudio.work/kiwi/user/upload',
+      formData: {
+        'avatarName': this.data.openid,
+      },
+      success: (res) => {
+        console.log(res.data)
+      },
+
+    })
   },
 
   /**
@@ -46,7 +59,7 @@ Page({
   onLoad(options) {
     let avatarURL = wx.getStorageSync('avatarURL')
     let nickname = wx.getStorageSync('nickname')
-
+  
     if (avatarURL != defaultAvatarUrl) {
       if (nickname.length <= 0) {
         nickname = '微信用户'
@@ -60,6 +73,12 @@ Page({
         nickname: nickname,
       })
     } 
+
+    var openid = wx.getStorageSync('openid')
+    this.setData({
+      openid: openid,
+    })
+    console.log('----'+this.data.openid)
   },
 
   
