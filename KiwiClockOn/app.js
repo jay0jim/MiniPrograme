@@ -2,9 +2,14 @@
 const utils = require('./utils/kiwiRequest').default
 
 App({
-  onLaunch() {
+  onLaunch(options) {
     // 登录，获取openid
     this.quickLogin()
+
+    options.query = {
+      'test': 'aaa'
+    }
+    console.log(options)
   },
 
   quickLogin() {
@@ -21,7 +26,7 @@ App({
         if (res.data.code == 200) {
           // 登录成功
           console.log(res.data, s_id, res.data.data.openid)
-          wx.setStorageSync('openid', res.data.data.openid)
+          this.saveUserInfo(res.data.data)
           
         } else {
           
@@ -53,27 +58,9 @@ App({
             method: 'POST',
             success: (res, s_id) => {
               console.log(res.data, s_id, res.data.data.openid)
-
-              wx.setStorageSync('openid', res.data.data.openid)
+              this.saveUserInfo(res.data.data)
             }
           })
-
-          // wx.request({
-          //   url: 'https://api.kiwistudio.work/kiwi/user/login',
-          //   data: data_dic,
-          //   method: 'POST',
-          //   success: (res) => {
-          //     console.log(res.data.msg, res.data.session_id)
-
-          //     that.setData({
-          //       session_id: res.data.session_id
-          //     })
-
-          //     app.globalData.session_id = res.data.session_id
-          //     wx.setStorageSync('session_id', res.data.session_id)
-          //   }
-          // })
-
 
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
@@ -84,7 +71,14 @@ App({
     })
   },
 
+  saveUserInfo(data) {
+    wx.setStorageSync('openid', data.openid)
+    wx.setStorageSync('nickname', data.nickname)
+    wx.setStorageSync('avatar', data.avatar)
+  },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+
   }
 })
