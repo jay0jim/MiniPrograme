@@ -2,6 +2,8 @@
 const COS = require('cos-js-sdk-v5');
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
+var kiwiNotificationCenter = require('../../utils/kiwiSingleton.js')
+
 Page({
 
   /**
@@ -66,7 +68,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.initCOS()
+    // this.initCOS()
+    kiwiNotificationCenter.defaultCenter.postNotificationWithName('test')
   },
 
   /**

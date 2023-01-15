@@ -1,5 +1,7 @@
 // app.js
 const utils = require('./utils/kiwiRequest').default
+const kiwiNotificationCenter = require('./utils/kiwiSingleton.js')
+
 
 App({
   onLaunch(options) {
@@ -58,7 +60,7 @@ App({
             method: 'POST',
             success: (res, s_id) => {
               console.log(res.data, s_id, res.data.data.openid)
-              this.saveUserInfo(res.data.data)
+              that.saveUserInfo(res.data.data)
             }
           })
 
@@ -75,6 +77,7 @@ App({
     wx.setStorageSync('openid', data.openid)
     wx.setStorageSync('nickname', data.nickname)
     wx.setStorageSync('avatar', data.avatar)
+    kiwiNotificationCenter.defaultCenter.postNotificationWithName('FinishSavingUserInfo')
   },
 
   globalData: {

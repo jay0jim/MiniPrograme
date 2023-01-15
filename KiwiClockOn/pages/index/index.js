@@ -1,6 +1,7 @@
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 import Toast from '@vant/weapp/toast/toast';
 
+const kiwiNotificationCenter = require('../../utils/kiwiSingleton.js')
 
 
 Page({
@@ -72,45 +73,47 @@ Page({
       duration: 0,
     });
 
-    // while(!app.globalData.hasLogin) {
-    //   setTimeout(() => {
+    // var that = this
+    // kiwiNotificationCenter.defaultCenter.registerNotification('FinishSavingUserInfo', () => {
 
-    //   }, 100)
-    // }
+    //   // let avatar = wx.getStorageSync('avatar')
+    //   // let nickname = wx.getStorageSync('nickname')
+    //   // let openid = wx.getStorageSync('openid')
 
-    let avatar = wx.getStorageSync('avatar')
-    let nickname = wx.getStorageSync('nickname')
-    let openid = wx.getStorageSync('openid')
+    //   // if (avatar == defaultAvatarUrl || nickname == '用户') {
+    //   //   nickname = '点击设置头像和昵称'
+    //   // }
 
-    if (avatar == defaultAvatarUrl || nickname == '用户') {
-      nickname = '点击设置头像和昵称'
-    }
+    //   // that.setData({
+    //   //   avatarURL: avatar,
+    //   //   nickname: nickname,
+    //   //   openid: openid,
+    //   // })
 
-    this.setData({
-      avatarURL: avatar,
-      nickname: nickname,
-      openid: openid,
-    })
-  
-    // if (avatarURL != defaultAvatarUrl) {
-    //   if (nickname.length <= 0) {
-    //     nickname = '微信用户'
-    //   }
-    //   if (avatarURL.length <= 0) {
-    //     avatarURL = defaultAvatarUrl
-    //   }
+    //   // // if (avatarURL != defaultAvatarUrl) {
+    //   // //   if (nickname.length <= 0) {
+    //   // //     nickname = '微信用户'
+    //   // //   }
+    //   // //   if (avatarURL.length <= 0) {
+    //   // //     avatarURL = defaultAvatarUrl
+    //   // //   }
 
-    //   this.setData({
-    //     avatarURL: avatarURL,
-    //     nickname: nickname,
-    //   })
-    // } 
+    //   // //   this.setData({
+    //   // //     avatarURL: avatarURL,
+    //   // //     nickname: nickname,
+    //   // //   })
+    //   // // } 
 
-    
-    console.log('----'+this.data.openid)
+
+    //   // console.log('----' + that.data.openid)
+
+    //   Toast.clear()
+    // })
+
+
   },
 
-  
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
