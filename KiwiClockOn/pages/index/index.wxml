@@ -1,10 +1,8 @@
 
-
-
 <view class="home-container">
 
-  <view class="userinfo-container" bindtap="showUserInfo">
-    <view class="userinfo-avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <view class="userinfo-container">
+    <view class="userinfo-avatar-wrapper">
       <image class="userinfo-avatar" src="{{avatarURL}}"></image>
     </view>
     <text class="userinfo-nickname">{{nickname}}</text>
@@ -27,20 +25,5 @@
 
 
 </view>
-
-<van-popup show="{{ showUserInfoPopup }}" round bind:close="onClose" >
-
-  <view class="loggin-container">
-    <button class="avatar-row-container" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-      <text>头像</text>
-      <image class="userinfo-avatar" src="{{avatarURL}}"></image>
-    </button>
-    <view class="nickname-row-container"></view>
-    <text>昵称限2-16个字符，一个汉字为2个字符</text>
-    <view class="confirm-button">确认</view>
-  </view>
-
-
-</van-popup>
 
 

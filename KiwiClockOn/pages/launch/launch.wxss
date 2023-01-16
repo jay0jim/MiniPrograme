@@ -1,1 +1,17 @@
 /* pages/launch/launch.wxss */
+.toast-container {
+  position: absolute;
+  width: 200rpx;
+  height: 200rpx;
+  z-index: 9999;
+  left: 50%;
+  margin-left: -100rpx;
+  top: 30%;
+
+  background-color: rgba(58, 58, 58, 0.7);
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

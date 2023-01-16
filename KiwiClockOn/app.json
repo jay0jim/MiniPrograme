@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/init/init",
     "pages/launch/launch",
     "pages/index/index",
     "pages/week/week",

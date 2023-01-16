@@ -1,1 +1,5 @@
+<view class="toast-container" hidden="{{toastHidden}}">
+  <van-loading type="spinner" size="30px" vertical color="#fefefe" text-size="15px"></van-loading>
+</view>
+
 
