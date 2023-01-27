@@ -1,12 +1,22 @@
 <view class="loggin-container">
-  <view>请设置您的头像和昵称</view>
+  <view style="margin-top: 10rpx; margin-left: 20rpx;">请点击获取头像</view>
 
-  <view class="avatar-container" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-    <image class="userinfo-avatar" src="{{avatarURL}}"></image>
-  </view>
+  <form catchsubmit="onConfirmUserInfo" catchreset="">
+    <view class="userinfo-container">
+      <button class="userinfo-avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}"></image>
+      </button>
 
-  
-  <view class="nickname-row-container"></view>
-  <text>昵称限2-16个字符，一个汉字为2个字符</text>
-  <view class="confirm-button">确认</view>
+
+      <view class="userinfo-nickname-wrapper">
+        <text style="margin: 25rpx 40rpx;">昵称</text>
+        <input name="nickname" type="nickname" class="nickname-input" placeholder="请点击获取昵称"/>
+      </view>
+    </view>
+
+    <button class="confirm-button" formType="submit">确认</button>
+  </form>
+
 </view>
+
+<van-toast id="van-toast" />

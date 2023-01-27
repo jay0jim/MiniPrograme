@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/init/init",
-    "pages/launch/launch",
     "pages/index/index",
+    "pages/launch/launch",
     "pages/week/week",
     "pages/calendar/calendar",
     "pages/year/year",

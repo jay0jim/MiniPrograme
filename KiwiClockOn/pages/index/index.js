@@ -1,5 +1,4 @@
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-import Toast from '@vant/weapp/toast/toast';
 
 const kiwiNotificationCenter = require('../../utils/kiwiSingleton.js')
 
@@ -43,35 +42,22 @@ Page({
     this.setData({
       avatarURL: avatarURL
     })
-    wx.uploadFile({
-      filePath: avatarURL,
-      name: 'avatar',
-      url: 'https://api.kiwistudio.work/kiwi/user/upload',
-      formData: {
-        'avatarName': this.data.openid,
-      },
-      success: (res) => {
-        console.log(res.data)
-      },
-
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let app = getApp()
+    let fromInit = wx.getStorageSync('fromInit')
 
-    console.log('-------')
-    console.log(options)
-
-    Toast.loading({
-      message: '加载中...',
-      forbidClick: true,
-      loadingType: 'spinner',
-      duration: 0,
-    });
+    if (fromInit == 1) {
+      // 新用户从init页面跳转而至
+      
+    } else {
+      // 老用户直接进入
+    }
+    console.log(fromInit)
 
     // var that = this
     // kiwiNotificationCenter.defaultCenter.registerNotification('FinishSavingUserInfo', () => {
