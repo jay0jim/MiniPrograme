@@ -1,5 +1,8 @@
 import Toast from '@vant/weapp/toast/toast';
 
+const utils = require('../../utils/kiwiRequest').default
+const FormData = require('../../utils/FormData.js').default
+
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Page({
@@ -10,6 +13,7 @@ Page({
   data: {
     avatarUrl: defaultAvatarUrl,
     nickname: '',
+    openid: '',
   },
 
   onChooseAvatar(e) {
@@ -19,31 +23,49 @@ Page({
     this.setData({
       avatarUrl,
     })
-    // wx.uploadFile({
-    //   filePath: avatarURL,
-    //   name: 'avatar',
-    //   url: 'https://api.kiwistudio.work/kiwi/user/upload',
-    //   formData: {
-    //     'avatarName': this.data.openid,
-    //   },
-    //   success: (res) => {
-    //     console.log(res.data)
-    //   },
 
-    // })
   },
 
   onConfirmUserInfo(e) {
     let nickname = e.detail.value.nickname
 
     if (nickname != '' && this.data.avatarUrl != defaultAvatarUrl) {
-      wx.setStorageSync('avatarUrl', this.data.avatarUrl)
-      wx.setStorageSync('nickname', nickname)
-      wx.setStorageSync('fromInit', 1)
-      // 切换到主界面，由于有tab，所以需要使用switchTab
-      wx.switchTab({
-        url: '/pages/index/index',
+      // 把头像上传到服务器
+      wx.uploadFile({
+        filePath: this.data.avatarUrl,
+        name: 'avatar',
+        url: 'https://api.kiwistudio.work/kiwi/user/upload',
+        formData: {
+          'avatarName': this.data.openid,
+        },
+        success: (res) => {
+          let resData = JSON.parse(res.data)
+          let fileUrl = resData.file_url
+
+          wx.setStorageSync('avatar', fileUrl)
+          wx.setStorageSync('nickname', nickname)
+
+          // 把头像和昵称上传到服务器
+          utils.kwRequestWithSessionId({
+            url: 'https://api.kiwistudio.work/kiwi/user/update_info',
+            method: 'POST',
+            data: {
+              avatar: fileUrl,
+              nickname: nickname,
+            },
+            success: (res) => {
+              console.log(res)
+            },
+          })
+
+          // 切换到主界面，由于有tab，所以需要使用switchTab
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        },
       })
+
+
     } else {
       Toast.fail({
         duration: 1800,
@@ -64,6 +86,10 @@ Page({
         success: (res) => {},
       })
     }
+    let openid = wx.getStorageSync('openid')
+    this.setData({
+      openid: openid,
+    })
   },
 
   /**

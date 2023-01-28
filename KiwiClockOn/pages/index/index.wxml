@@ -2,21 +2,19 @@
 <view class="home-container">
 
   <view class="userinfo-container">
-    <view class="userinfo-avatar-wrapper">
-      <image class="userinfo-avatar" src="{{avatarURL}}"></image>
-    </view>
-    <text class="userinfo-nickname">{{nickname}}</text>
+    <image class="userinfo-avatar" src="{{avatarURL}}" bindload="onImageLoaded" binderror="onImageError"></image>
+    <text style="margin-left: 20rpx;">{{nickname}}</text>
   </view>
 
   <view class="action-container">
     <view class="scan-code-container">
-      <view class="scan-code-wrapper">
+      <view class="scan-code-wrapper" bindtap="onScanCode">
         <image class="scan-code" src="../../icons/scan.png"></image>
       </view>
       <text class="scan-code-text">扫码参加</text>
     </view>
     <view class="host-container">
-      <view class="host-wrapper">
+      <view class="host-wrapper" bindtap="onCreateEvent">
         <image class="host" src="../../icons/host.png"></image>
       </view>
       <text class="host-text">发起活动</text>
@@ -25,5 +23,7 @@
 
 
 </view>
+
+<van-toast id="van-toast" />
 
 

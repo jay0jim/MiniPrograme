@@ -15,7 +15,7 @@ Page({
     utils.kwRequestWithSessionId({
       url: 'https://api.kiwistudio.work/kiwi/user/login',
       method: 'POST',
-      data:{
+      data: {
 
       },
       success: (res, s_id) => {
@@ -24,9 +24,9 @@ Page({
           // 登录成功
           console.log(res.data, s_id, res.data.data.openid)
           this.saveUserInfo(res.data.data)
-          
+
         } else {
-          
+
           // 提示需请求res_code再登录
           if (res.data.code == 400200) {
             console.log('需要重新登陆')
@@ -72,16 +72,28 @@ Page({
     wx.setStorageSync('openid', data.openid)
     wx.setStorageSync('nickname', data.nickname)
     wx.setStorageSync('avatar', data.avatar)
-    
+    console.log(data.avatar)
+
+    let hasSetInfo = data.has_set_info
+    wx.setStorageSync('hasSetInfo', hasSetInfo)
+
     // 取消菊花显示
     this.setData({
       toastHidden: true,
     })
 
-    // 重定向到下个页面
-    wx.redirectTo({
-      url: '/pages/init/init?from=launch',
-    })
+    // 如未设置头像和昵称，则跳转到init页面
+    if (hasSetInfo == 0) {
+      wx.redirectTo({
+        url: '/pages/init/init?from=launch',
+      })
+    } else {
+      // 如已设置头像和昵称，则跳转到index页面
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
+
   },
 
   /**

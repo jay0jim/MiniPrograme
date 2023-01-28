@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/init/init",
-    "pages/index/index",
     "pages/launch/launch",
+    "pages/index/index",
+    "pages/init/init",
     "pages/week/week",
     "pages/calendar/calendar",
     "pages/year/year",
@@ -16,18 +16,27 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
+    "selectedColor": "#dc143c",
+    "color": "#bfbfbf",
+    "borderStyle": "black",
     "list": [
       {
         "text": "Home",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/icons/home-active.png",
+        "iconPath": "/icons/home.png"
       },
       {
         "text": "Week",
-        "pagePath": "pages/week/week"
+        "pagePath": "pages/week/week",
+        "selectedIconPath": "/icons/week-activate.png",
+        "iconPath": "/icons/week.png"
       },
       {
         "text": "Month",
-        "pagePath": "pages/calendar/calendar"
+        "pagePath": "pages/calendar/calendar",
+        "selectedIconPath": "/icons/month-activate.png",
+        "iconPath": "/icons/month.png"
       }
     ]
   }
