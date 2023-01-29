@@ -7,6 +7,7 @@ Page({
    */
   data: {
     toastHidden: false,
+    fromPage: '',
   },
 
   quickLogin() {
@@ -85,13 +86,19 @@ Page({
     // 如未设置头像和昵称，则跳转到init页面
     if (hasSetInfo == 0) {
       wx.redirectTo({
-        url: '/pages/init/init?from=launch',
+        url: '/pages/init/init?from=launch&share=' + this.data.fromPage,
       })
     } else {
-      // 如已设置头像和昵称，则跳转到index页面
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
+      // 如已设置头像和昵称，则跳转到index页面，或分享过来的页面
+      if (this.data.fromPage != '') {
+        wx.switchTab({
+          url: this.data.fromPage,
+        })
+      } else {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }
     }
 
   },
@@ -100,6 +107,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
+    if (options['from'] != null) {
+      this.setData({
+        fromPage: options['from'],
+      })
+    }
+
+    console.log(this.data.fromPage)
+
     // 登录，获取openid
     this.quickLogin()
 

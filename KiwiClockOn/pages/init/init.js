@@ -14,6 +14,7 @@ Page({
     avatarUrl: defaultAvatarUrl,
     nickname: '',
     openid: '',
+    sharePage: null,
   },
 
   onChooseAvatar(e) {
@@ -58,10 +59,18 @@ Page({
             },
           })
 
-          // 切换到主界面，由于有tab，所以需要使用switchTab
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
+          // 切换到主界面，或分享过来的页面，
+          // 由于有tab，所以需要使用switchTab
+          if (this.data.sharePage != null) {
+            wx.switchTab({
+              url: this.data.sharePage,
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }
+          
         },
       })
 
@@ -80,7 +89,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var fromRoute = options.from
+    let fromRoute = options.from
+    let sharePage = options.share
     if (fromRoute == 'launch') {
       wx.hideHomeButton({
         success: (res) => {},
@@ -89,6 +99,7 @@ Page({
     let openid = wx.getStorageSync('openid')
     this.setData({
       openid: openid,
+      sharePage: sharePage,
     })
   },
 
